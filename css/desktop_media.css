@@ -200,7 +200,7 @@ html {
     } */
 }
 
-/* One-time fade-show animation */
+/* Load fade animation */
 @keyframes fadeShow {
     0% {
         opacity: 0;

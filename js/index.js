@@ -28,6 +28,7 @@ contactButton.addEventListener("click", () => {
   document.querySelector("#con_tbg").scrollIntoView({ behavior: "smooth" });
 });
 
+// Load fade animation
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll("fieldset:not(.fid_a)");
   const observer = new IntersectionObserver(
