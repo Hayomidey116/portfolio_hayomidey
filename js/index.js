@@ -12,7 +12,7 @@ hamburger.addEventListener("click", () => {
 });
 
 // Close hamburger menu and show scrollbar when a nav link is clicked
-navLinks.forEach(link => {
+navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
@@ -26,4 +26,23 @@ contactButton.addEventListener("click", () => {
   navMenu.classList.remove("active");
   body.classList.remove("no-scroll");
   document.querySelector("#con_tbg").scrollIntoView({ behavior: "smooth" });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll("fieldset:not(.fid_a)");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-show");
+          observer.unobserve(entry.target); // Stop observing after animation
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: "0px 0px -20px 0px",
+    }
+  );
+  sections.forEach((section) => observer.observe(section));
 });
